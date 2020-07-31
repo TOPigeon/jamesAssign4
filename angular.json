@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jamesAssign4"
+    }
+  },
+  "defaultProject": "jamesAssign4",
+  "cli": {
+    "analytics": false
+  }
 }
