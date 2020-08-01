@@ -1,7 +1,16 @@
 <mat-tab-group mat-stretch-tabs  
-               class="example-stretched-tabs mat-elevation-z4">
+               class="example-stretched-tabs mat-elevation-z4" [backgroundColor]="background">
   <!-- Simple text label -->
   <mat-tab label="My Courses">
+    
+    <ng-template mat-tab-label>
+      <mat-icon class="account">account_box</mat-icon>
+       <div id=carLabel>My Courses</div>
+        
+        
+       
+       
+        </ng-template>
     <ul id="CourseList">
       <li *ngFor="let cls of myclasses; let i=index" id="s{{i}}"
       (click)="onClickMe(i)">{{cls.CourseName}}
@@ -16,18 +25,87 @@
 
   <!-- Label with Icon for Personal Data-->
   <mat-tab label="My Info">
-      
-        <p> Name: {{BioInfo.name}}<br>
-         Student ID:{{BioInfo.snum}}<br>
-         Status: {{BioInfo.status}}<br> 
-         {{BioInfo.ImageLocation}}<br>
-      </p>
-
+    
+    <ng-template mat-tab-label>
+      <mat-icon class="red-car">error</mat-icon>
+       <div id=carLabel>My Info</div>
+        
+        
+       
+       
+        </ng-template>
+      <table id=MyInfoTable>
+        <tr>
+          <td>Name:</td> <td>{{BioInfo.name}}</td>
+        </tr>
+        <tr>
+          <td>Student ID:</td> <td>{{BioInfo.snum}}</td>
+        </tr>
+        <tr>
+          <td>Status: </td> <td>{{BioInfo.status}}</td>
+        </tr>  
+        <tr>
+          <td>Image:</td> <td><img src={{BioInfo.ImageLocation}}></td>
+        </tr>
+         
+    
+    </table>
   </mat-tab>  
 
   <!-- Label with Icon for External Data View -->
-  <mat-tab label="Display New or Used Cars"> 
-   
+  
+  
+  <mat-tab label="Display New or Used Cars">
+    <ng-template mat-tab-label>
+      <mat-icon class="red-car">directions_car</mat-icon>
+       <div id=carLabel>Display New or Used Cars</div>
+        
+        <mat-icon class="blue-car">electric_car</mat-icon>
+       
+       
+        </ng-template>
+  
+        
+    <div id=buttons>
+    <button mat-raised-button (click)="onClickNewCar()">List of new cars<mat-icon color="primary">local_atm</mat-icon></button> </div>
+    
+    <hr>
+    <div id=buttons>
+    <button mat-raised-button (click)="onClickUsedCar()">List of used cars<mat-icon color="primary">support</mat-icon></button>
+  </div>
+  
+  <ng-container *ngIf="showNew">
+    
+    <h3>List of new cars</h3>
+    <table>
+        <tr> <th>Make</th> <th>Type</th> <th>Engine</th> <th>Cost</th> <th>Color</th></tr>
+        <tr *ngFor="let car of newCars">
+          <td>{{car.make}}</td>
+          <td>{{car.type}}</td>
+          <td>{{car.engine}}</td>
+          <td>{{car.cost}}</td>
+          <td>{{car.color}}</td>
+        </tr>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="show">
+    
+    <h3>List of Used cars</h3>
+    <table>
+        <tr> <th>Make</th> <th>Type</th> <th>Engine</th> <th>Cost</th> <th>Color</th></tr>
+        <tr *ngFor="let car of usedCars">
+          <td>{{car.make}}</td>
+          <td>{{car.type}}</td>
+          <td>{{car.engine}}</td>
+          <td>{{car.cost}}</td>
+          <td>{{car.color}}</td>
+        </tr>
+    </table>
+  
+  </ng-container>
+    
+
     
   </mat-tab>
 </mat-tab-group>
