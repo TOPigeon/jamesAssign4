@@ -1,0 +1,34 @@
+<mat-tab-group mat-stretch-tabs  
+               class="example-stretched-tabs mat-elevation-z4">
+  <!-- Simple text label -->
+  <mat-tab label="My Courses">
+    <ul id="CourseList">
+      <li *ngFor="let cls of myclasses; let i=index" id="s{{i}}"
+      (click)="onClickMe(i)">{{cls.CourseName}}
+      <div id='d{{i}}' [ngStyle]="{display : showHideText(i) }">
+        <strong>Class Name:</strong> {{cls.CourseName}}<br>
+        <strong>Credits:</strong> {{cls.Credits}}<br> 
+        <strong>Description:</strong> {{cls.Description}}<br> 
+        
+      </div>
+    </ul>
+  </mat-tab >
+
+  <!-- Label with Icon for Personal Data-->
+  <mat-tab label="My Info">
+      <ul>
+        <li> Name: {{BioInfo.name}}</li>
+        <li> Student ID:{{BioInfo.snum}}
+          {{BioInfo.ImageLocation}} </li>
+      </ul>
+
+  </mat-tab>  
+
+  <!-- Label with Icon for External Data View -->
+  <mat-tab label="Display New or Used Cars"> 
+   
+    
+  </mat-tab>
+</mat-tab-group>
+
+
