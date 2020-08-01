@@ -8,5 +8,5 @@ import { MyBio} from './MyBio';
 export class AppComponent {
   title = 'James Burrows';
 
-  Bio: MyBio = {name:"James Burrows", snum:991541595, ImageLocation: "./assets/images"};
+  Bio: MyBio = {name:"James Burrows", snum:991541595, ImageLocation: "./assets/images",status:"Sophomore"};
 }
